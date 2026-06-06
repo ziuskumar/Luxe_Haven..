@@ -108,6 +108,23 @@ app.use((req, res, next) => {
 //   res.json({ sessionID: req.sessionID, views: req.session.views });
 // });
 
+app.get("/debug-db", async (req, res) => {
+  try {
+    const dbName = mongoose.connection.db.databaseName;
+    const collections = await mongoose.connection.db.listCollections().toArray();
+    const Listing = mongoose.model("Listing");
+    const listingCount = await Listing.countDocuments({});
+    res.json({
+      dbName,
+      collections: collections.map(c => c.name),
+      listingCount,
+      dburl: dburl.replace(/:[^:@/]+@/, ":****@"),
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 app.get("/", (req, res) => {
   res.redirect("/listings");
 });

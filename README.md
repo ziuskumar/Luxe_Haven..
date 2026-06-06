@@ -1,6 +1,6 @@
 ﻿# 🏡 Luxe Haven (TheAIR)
 
-A full-stack, responsive web application inspired by Airbnb. Luxe Haven offers dynamic listings, seamless user authentication, categorized search filters, review integrations, and cloud-based image storage.
+A full-stack, responsive web application inspired by Airbnb. Luxe Haven offers dynamic listings, seamless user authentication, categorized search filters, review integrations, and cloud-based image storage..
 
 ---
 

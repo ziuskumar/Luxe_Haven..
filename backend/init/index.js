@@ -1,8 +1,12 @@
 const mongoose = require("mongoose");
 const Listing = require("../Models/listing.js");
 const initdata = require("./data.js");
+const path = require("path");
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config({ path: path.join(__dirname, "../.env") });
+}
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/THEAIR";
+const MONGO_URL = process.env.MONGO_URL || process.env.ATLAS_URI || "mongodb://127.0.0.1:27017/THEAIR";
 
 main().then(() => {
     console.log("Connected to MongoDB");
@@ -21,7 +25,13 @@ const initDB = async () => {
         
         const title = obj.title.toLowerCase();
         const desc = (obj.description || "").toLowerCase();
-        if (title.includes("beach") || title.includes("ocean") || desc.includes("beach") || desc.includes("ocean")) {
+        if (title.includes("yacht") || desc.includes("yacht") || title.includes("boat")) {
+            obj.category = "Yacht";
+        } else if (title.includes("plane") || title.includes("jet") || desc.includes("plane") || desc.includes("jet")) {
+            obj.category = "Private Plane";
+        } else if (title.includes("farm") || desc.includes("farm")) {
+            obj.category = "Farm House";
+        } else if (title.includes("beach") || title.includes("ocean") || desc.includes("beach") || desc.includes("ocean")) {
             obj.category = "Beaches";
         } else if (title.includes("mountain") || title.includes("retreat") || title.includes("alps") || desc.includes("mountain")) {
             obj.category = "Mountains";

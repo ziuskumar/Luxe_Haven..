@@ -350,6 +350,78 @@ const sampleListings = [
     location: "Costa Rica",
     country: "Costa Rica",
   },
+  {
+    title: "Luxury Yacht Charter",
+    description:
+      "Experience the ultimate luxury on this private yacht cruise. Fully staffed with top-tier amenities and ocean vistas.",
+    image: {
+      url: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=800&q=60",
+      filename: "luxury-yacht-charter",
+    },
+    price: 8500,
+    location: "Monaco",
+    country: "Monaco",
+  },
+  {
+    title: "Ocean Breeze Yacht",
+    description:
+      "Settle into a gorgeous yacht cabin and wake up to 360-degree ocean views in the Caribbean.",
+    image: {
+      url: "https://images.unsplash.com/photo-1505080856163-267d49b302cd?auto=format&fit=crop&w=800&q=60",
+      filename: "ocean-breeze-yacht",
+    },
+    price: 6200,
+    location: "Nassau",
+    country: "Bahamas",
+  },
+  {
+    title: "Ultra Luxury Jet Experience",
+    description:
+      "Fly in absolute comfort and style in this retrofitted private plane. Fully catered flights and plush seating.",
+    image: {
+      url: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=800&q=60",
+      filename: "luxury-jet",
+    },
+    price: 9500,
+    location: "Geneva",
+    country: "Switzerland",
+  },
+  {
+    title: "Executive Private Jet",
+    description:
+      "A premium private jet charter experience with executive business seating and world-class service.",
+    image: {
+      url: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=800&q=60",
+      filename: "executive-jet",
+    },
+    price: 7800,
+    location: "London",
+    country: "United Kingdom",
+  },
+  {
+    title: "Rustic Barn Farmhouse",
+    description:
+      "Enjoy a quiet retreat at this beautifully renovated farmhouse surrounded by rolling hills and organic gardens.",
+    image: {
+      url: "https://images.unsplash.com/photo-1500076656116-558758c991c1?auto=format&fit=crop&w=800&q=60",
+      filename: "rustic-farmhouse",
+    },
+    price: 1400,
+    location: "Napa Valley",
+    country: "United States",
+  },
+  {
+    title: "Sunlit Lavender Farmhouse",
+    description:
+      "Escape to this serene farmhouse located in the middle of lavender fields. Fresh air and peace guaranteed.",
+    image: {
+      url: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=60",
+      filename: "lavender-farmhouse",
+    },
+    price: 1600,
+    location: "Provence",
+    country: "France",
+  },
 ];
 
 module.exports = { data: sampleListings };

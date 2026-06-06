@@ -4,6 +4,7 @@
   "description": "Root helper package for monorepo-style structure",
   "scripts": {
     "start": "npm start --prefix backend",
-    "dev": "npm run dev --prefix backend"
+    "dev": "npm run dev --prefix backend",
+    "build": "echo 'Building root monorepo...'"
   }
 }

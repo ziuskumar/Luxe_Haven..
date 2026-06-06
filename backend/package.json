@@ -4,7 +4,8 @@
   },
   "scripts": {
     "start": "node app.js",
-    "dev": "node app.js"
+    "dev": "node app.js",
+    "build": "echo 'No build step required for Express/EJS backend.'"
   },
   "dependencies": {
     "cloudinary": "^2.8.0",

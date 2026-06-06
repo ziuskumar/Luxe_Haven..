@@ -12,8 +12,17 @@ if (!MONGO_URL || (!MONGO_URL.startsWith("mongodb://") && !MONGO_URL.startsWith(
   MONGO_URL = DEFAULT_ATLAS_URL;
 }
 
-main().then(() => {
+main().then(async () => {
     console.log("Connected to MongoDB");
+    try {
+        await initDB();
+        console.log("Seeding completed successfully.");
+    } catch (err) {
+        console.error("Error seeding database:", err);
+    } finally {
+        await mongoose.disconnect();
+        console.log("Disconnected from MongoDB.");
+    }
 }).catch((err) => {
     console.log("Error connecting to MongoDB:", err);
 });
@@ -60,4 +69,4 @@ const initDB = async () => {
     console.log("Data initialized");
 }
 
-initDB();
+// initDB is now called inside main().then()

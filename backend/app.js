@@ -9,7 +9,7 @@ const methodOverride = require("method-override");
 const Listing = require("./Models/listing.js");
 const path = require("path");
 const ejsMate = require("ejs-mate");
-const DEFAULT_LOCAL_DB_URL = "mongodb://127.0.0.1:27017/THEAIR";
+const DEFAULT_LOCAL_DB_URL = "mongodb+srv://luckykv17_db_user:HETcndVJlRbg38xS@clusterlx.zfgujix.mongodb.net/THEAIR?retryWrites=true&w=majority&appName=Cluster0";
 const dburl =
   process.env.MONGO_URL || process.env.ATLAS_URI || DEFAULT_LOCAL_DB_URL;
 const sessionSecret = process.env.SECRET || "Secret";

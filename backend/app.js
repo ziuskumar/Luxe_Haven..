@@ -10,8 +10,10 @@ const Listing = require("./Models/listing.js");
 const path = require("path");
 const ejsMate = require("ejs-mate");
 const DEFAULT_LOCAL_DB_URL = "mongodb+srv://luckykv17_db_user:HETcndVJlRbg38xS@clusterlx.zfgujix.mongodb.net/THEAIR?retryWrites=true&w=majority&appName=Cluster0";
-const dburl =
-  process.env.MONGO_URL || process.env.ATLAS_URI || DEFAULT_LOCAL_DB_URL;
+let dburl = process.env.MONGO_URL || process.env.ATLAS_URI;
+if (!dburl || (!dburl.startsWith("mongodb://") && !dburl.startsWith("mongodb+srv://"))) {
+  dburl = DEFAULT_LOCAL_DB_URL;
+}
 const sessionSecret = process.env.SECRET || "Secret";
 const port = Number(process.env.PORT) || 3000;
 const MongoStore = require("connect-mongo");

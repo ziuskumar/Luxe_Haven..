@@ -6,7 +6,11 @@ if (process.env.NODE_ENV !== "production") {
     require("dotenv").config({ path: path.join(__dirname, "../.env") });
 }
 
-const MONGO_URL = process.env.MONGO_URL || process.env.ATLAS_URI || "mongodb+srv://luckykv17_db_user:HETcndVJlRbg38xS@clusterlx.zfgujix.mongodb.net/THEAIR?retryWrites=true&w=majority&appName=Cluster0";
+const DEFAULT_ATLAS_URL = "mongodb+srv://luckykv17_db_user:HETcndVJlRbg38xS@clusterlx.zfgujix.mongodb.net/THEAIR?retryWrites=true&w=majority&appName=Cluster0";
+let MONGO_URL = process.env.MONGO_URL || process.env.ATLAS_URI;
+if (!MONGO_URL || (!MONGO_URL.startsWith("mongodb://") && !MONGO_URL.startsWith("mongodb+srv://"))) {
+  MONGO_URL = DEFAULT_ATLAS_URL;
+}
 
 main().then(() => {
     console.log("Connected to MongoDB");

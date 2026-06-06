@@ -1,0 +1,131 @@
+<% layout("/Layouts/boilerplate.ejs") %>
+
+<section class="auth-shell auth-shell-signup" data-auth-shell>
+  <div class="auth-bg-circle auth-bg-circle-one"></div>
+  <div class="auth-bg-circle auth-bg-circle-two"></div>
+  <div class="auth-grid">
+    <div class="auth-card auth-card-signup">
+      <div class="auth-card-glow"></div>
+      <div class="auth-card-content">
+        <div class="auth-card-header">
+          <span class="auth-chip">Join TheAIR</span>
+          <h2>Create account</h2>
+          <p>Start with a stylish profile and explore stays that match your vibe.</p>
+        </div>
+
+        <form action="/signup" method="post" class="needs-validation auth-form" novalidate>
+          <div class="auth-input-group">
+            <label for="username" class="form-label">Username</label>
+            <div class="auth-input-wrap">
+              <i class="fa-regular fa-user"></i>
+              <input
+                name="username"
+                id="username"
+                type="text"
+                class="form-control auth-input"
+                placeholder="Choose a username"
+                required
+              />
+            </div>
+            <div class="invalid-feedback">Please choose a username.</div>
+          </div>
+
+          <div class="auth-input-group">
+            <label for="email" class="form-label">Email</label>
+            <div class="auth-input-wrap">
+              <i class="fa-regular fa-envelope"></i>
+              <input
+                name="email"
+                id="email"
+                type="email"
+                class="form-control auth-input"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div class="invalid-feedback">Please enter a valid email.</div>
+          </div>
+
+          <div class="auth-input-group">
+            <label for="password" class="form-label">Password</label>
+            <div class="auth-input-wrap auth-password-wrap">
+              <i class="fa-solid fa-lock"></i>
+              <input
+                name="password"
+                id="password"
+                type="password"
+                class="form-control auth-input"
+                placeholder="Create a password"
+                minlength="6"
+                required
+              />
+              <button class="auth-password-toggle" type="button" data-password-toggle aria-label="Show password">
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+            <div class="invalid-feedback">Please add a password with at least 6 characters.</div>
+          </div>
+
+          <button class="btn auth-submit-btn" type="submit">
+            <span>Create Account</span>
+            <i class="fa-solid fa-arrow-right-long"></i>
+          </button>
+        </form>
+
+        <div class="auth-divider">
+          <span>Already have an account?</span>
+        </div>
+
+        <a href="/login" class="auth-secondary-link">
+          Go to login
+          <i class="fa-solid fa-right-to-bracket"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="auth-hero auth-hero-signup">
+      <span class="auth-badge">New Experience</span>
+      <h1>Create your travel identity in a few seconds.</h1>
+      <p>
+        Join TheAIR to save beautiful stays, post reviews, and build your next adventure from one place.
+      </p>
+
+      <div class="auth-feature-list">
+        <div class="auth-feature-card">
+          <div class="auth-feature-icon">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <div>
+            <h3>Immersive design</h3>
+            <p>A modern sign-up flow that feels premium from the first click.</p>
+          </div>
+        </div>
+
+        <div class="auth-feature-card">
+          <div class="auth-feature-icon">
+            <i class="fa-solid fa-shield-heart"></i>
+          </div>
+          <div>
+            <h3>Secure start</h3>
+            <p>Create your profile and begin browsing stays with a cleaner, friendlier experience.</p>
+          </div>
+        </div>
+
+        <div class="auth-steps">
+          <div class="auth-step">
+            <span>1</span>
+            <p>Choose your profile details.</p>
+          </div>
+          <div class="auth-step">
+            <span>2</span>
+            <p>Create your account instantly.</p>
+          </div>
+          <div class="auth-step">
+            <span>3</span>
+            <p>Start exploring listings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

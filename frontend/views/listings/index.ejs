@@ -1,0 +1,255 @@
+<% layout("/Layouts/boilerplate.ejs") %>
+
+  <!-- <h1>All Listings</h1> -->
+  <!-- <form action="/listings/new" method="GET">
+    <button class="btn btn-primary">Create New Listing</button>
+  </form> -->
+  <style>
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .filter {
+      text-align: center;
+      margin: 0.8rem;
+      opacity: 0.7;
+      transition: all 0.3s ease;
+      padding: 0.5rem;
+      border-radius: 8px;
+    }
+
+    .filter:hover {
+      opacity: 1;
+      cursor: pointer;
+      background-color: #f8f9fa;
+      transform: translateY(-2px);
+    }
+
+    .filter div {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .filter p {
+      font-size: 0.75rem;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    .tax-info {
+      display: none;
+    }
+
+    .tax-toggle-container {
+      min-width: 150px;
+    }
+
+    .tax-toggle-label {
+      border: 1px solid #dee2e6;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      background-color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #495057;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      white-space: nowrap;
+    }
+
+    .tax-toggle-label:hover {
+      background-color: #f8f9fa;
+      border-color: #adb5bd;
+    }
+
+    .form-check-input:checked+.form-check-label .tax-toggle-label {
+      background-color: #e3f2fd;
+      border-color: #2196f3;
+      color: #1976d2;
+    }
+
+    @media (max-width: 768px) {
+      .d-flex.justify-content-between {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .tax-toggle-container {
+        margin-top: 1rem;
+        margin-left: 0 !important;
+        text-align: center;
+      }
+
+      .filters {
+        justify-content: center;
+      }
+    }
+  </style>
+  <!-- Filter and Tax Toggle Container -->
+  <% const currentCategory = typeof activeCategory !== 'undefined' ? activeCategory : ''; %>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <!-- Filter Icons -->
+    <div class="filters flex-grow-1">
+      <a href="/listings?category=Rooms" class="filter-link">
+        <div class="filter <%= currentCategory === 'Rooms' ? 'active' : '' %>">
+          <div><i class="fa-solid fa-bed" style="color: #6366f1;"></i></div>
+          <p>Rooms</p>
+        </div>
+      </a>
+
+      <a href="/listings?category=Iconic City" class="filter-link">
+        <div class="filter <%= currentCategory === 'Iconic City' ? 'active' : '' %>">
+          <div><i class="fa-solid fa-mountain-city" style="color: #d97706;"></i></div>
+          <p>Iconic City</p>
+        </div>
+      </a>
+
+      <a href="/listings?category=Mountains" class="filter-link">
+        <div class="filter <%= currentCategory === 'Mountains' ? 'active' : '' %>">
+          <div><i class="fa-solid fa-mountain-sun" style="color: #16a34a;"></i></div>
+          <p>Mountains</p>
+        </div>
+      </a>
+
+      <a href="/listings?category=Yacht" class="filter-link">
+        <div class="filter <%= currentCategory === 'Yacht' ? 'active' : '' %>">
+          <div><i class="fa-solid fa-ship" style="color: #0d9488;"></i></div>
+          <p>Yacht</p>
+        </div>
+      </a>
+
+      <a href="/listings?category=Private Plane" class="filter-link">
+        <div class="filter <%= currentCategory === 'Private Plane' ? 'active' : '' %>">
+          <div><i class="fa-solid fa-plane" style="color: #9333ea;"></i></div>
+          <p>Private Plane</p>
+        </div>
+      </a>
+
+      <a href="/listings?category=Beaches" class="filter-link">
+        <div class="filter <%= currentCategory === 'Beaches' ? 'active' : '' %>">
+          <div><i class="fa-solid fa-umbrella-beach" style="color: #ea580c;"></i></div>
+          <p>Beaches</p>
+        </div>
+      </a>
+
+      <a href="/listings?category=Pool" class="filter-link">
+        <div class="filter <%= currentCategory === 'Pool' ? 'active' : '' %>">
+          <div><i class="fa-solid fa-person-swimming" style="color: #2563eb;"></i></div>
+          <p>Pool</p>
+        </div>
+      </a>
+
+      <a href="/listings?category=Camping" class="filter-link">
+        <div class="filter <%= currentCategory === 'Camping' ? 'active' : '' %>">
+          <div><i class="fa-solid fa-campground" style="color: #65a30d;"></i></div>
+          <p>Camping</p>
+        </div>
+      </a>
+
+      <a href="/listings?category=House" class="filter-link">
+        <div class="filter <%= currentCategory === 'House' ? 'active' : '' %>">
+          <div><i class="fa-regular fa-building" style="color: #db2777;"></i></div>
+          <p>House</p>
+        </div>
+      </a>
+
+      <a href="/listings?category=Winter" class="filter-link">
+        <div class="filter <%= currentCategory === 'Winter' ? 'active' : '' %>">
+          <div><i class="fa-regular fa-snowflake" style="color: #06b6d4;"></i></div>
+          <p>Winter</p>
+        </div>
+      </a>
+
+      <a href="/listings?category=Farm House" class="filter-link">
+        <div class="filter <%= currentCategory === 'Farm House' ? 'active' : '' %>">
+          <div><i class="fa-solid fa-house-chimney" style="color: #b45309;"></i></div>
+          <p>Farm House</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Tax Toggle Button -->
+    <div class="tax-toggle-container ms-4">
+      <div class="form-check form-switch d-flex align-items-center">
+        <input class="form-check-input me-2" type="checkbox" id="toggleSwitch" checked>
+        <label class="form-check-label" for="toggleSwitch">
+          <span class="tax-toggle-label">
+            <i class="fa-solid fa-calculator me-1"></i>
+            Display Taxes
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <% const searchValue = typeof query !== "undefined" ? query : ""; %>
+  <% if (searchValue) { %>
+    <h5 class="mt-3">Search results for "<%= searchValue %>"</h5>
+  <% } %>
+
+  <% if (!allListing.length) { %>
+    <div class="alert alert-warning mt-3">
+      No listings found. Try another search or create a new listing.
+    </div>
+  <% } %>
+
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+    <% for(let listing of allListing){ %>
+      <div class="col">
+        <a href="/listings/<%= listing._id %>" class="listing-link">
+          <div class="card listing-card">
+            <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_images" style="height: 20rem;">
+            <div class="card-img-overlay"></div>
+            <div class="card-body">
+              <p class="card-text">
+                <strong class="card-title-text d-block text-truncate"><%= listing.title %></strong>
+                <span class="card-price-text">&#8377; <%= listing.price.toLocaleString("en-IN") %></span> / night
+                <i class="tax-info"> &nbsp; +18% GST</i>
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    <% } %>
+  </div>
+
+  <!-- <ul class="list-group mt-3">
+    <% for(let listing of allListing){ %>
+      <li class="list-group-item">
+        <a href="/listings/<%= listing._id %>" class="text-decoration-none">
+          <%= listing.title %>  
+        </a>
+      </li>
+      <% } %>
+  </ul> -->
+
+  <script>
+    // Get the toggle switch element
+    const toggleSwitch = document.getElementById('toggleSwitch');
+
+    // Add an event listener to the toggle switch
+    toggleSwitch.addEventListener('change', function () {
+      // Check if the toggle switch is checked
+      // if (this.checked) {
+      //   // Apply the checked style to the parent element
+      //   this.parentElement.classList.add('checked');
+      // } else {
+      //   // Remove the checked style from the parent element
+      //   this.parentElement.classList.remove('checked');
+      // }
+
+      let taxInfo = document.getElementsByClassName("tax-info");
+      if (this.checked) {
+        for (let i = 0; i < taxInfo.length; i++) {
+          taxInfo[i].style.display = "inline";
+        }
+      }
+      else {
+        for (let i = 0; i < taxInfo.length; i++) {
+          taxInfo[i].style.display = "none";
+        }
+      }
+
+    });
+  </script>

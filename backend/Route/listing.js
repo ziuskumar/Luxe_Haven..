@@ -26,7 +26,11 @@ router
   // INDEX ROUTE
   .get(wrapAsync(listingController.index))
   // CREATE ROUTE
-  .post(upload.single("listing[image]"), wrapAsync(listingController.createListing));
+  .post(
+    upload.single("listing[image]"),
+    validateListing,
+    wrapAsync(listingController.createListing),
+  );
 // .post(upload.single("listing[image]"), (req,res) => {
 //   res.send(req.file);
 // });
@@ -37,7 +41,11 @@ router.get("/new", wrapAsync(listingController.rendernewform));
 router
   .route("/:id")
   .get(wrapAsync(listingController.showListing))
-  .put(upload.single("listing[image]"), wrapAsync(listingController.updateListing))
+  .put(
+    upload.single("listing[image]"),
+    validateListing,
+    wrapAsync(listingController.updateListing),
+  )
   .delete(wrapAsync(listingController.deleteListing));
 
 // Edit Route

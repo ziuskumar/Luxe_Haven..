@@ -94,6 +94,25 @@
       </div>
 
       <div class="mb-3">
+        <label for="category" class="form-label">Category : </label>
+        <select id="category" name="listing[category]" class="form-select" required>
+          <option value="Rooms">Rooms</option>
+          <option value="Iconic City">Iconic City</option>
+          <option value="Mountains">Mountains</option>
+          <option value="Yacht">Yacht</option>
+          <option value="Private Plane">Private Plane</option>
+          <option value="Beaches">Beaches</option>
+          <option value="Pool">Pool</option>
+          <option value="Camping">Camping</option>
+          <option value="House">House</option>
+          <option value="Winter">Winter</option>
+          <option value="Farm House">Farm House</option>
+        </select>
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please select a valid category.</div>
+      </div>
+
+      <div class="mb-3">
         <label for="location" class="form-label">Location : </label>
         <input
           type="text"

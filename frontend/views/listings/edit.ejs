@@ -49,6 +49,17 @@
         <div class="invalid-feedback">Please provide a valid image URL.</div> -->
         </div>
         <div class="mb-3">
+          <label for="category" class="form-label">Category : </label>
+          <select id="category" name="listing[category]" class="form-select" required>
+            <% const cats = ["Rooms", "Iconic City", "Mountains", "Yacht", "Private Plane", "Beaches", "Pool", "Camping", "House", "Winter", "Farm House"]; %>
+            <% for (let cat of cats) { %>
+              <option value="<%= cat %>" <%= (listing.category === cat) ? 'selected' : '' %>><%= cat %></option>
+            <% } %>
+          </select>
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please select a valid category.</div>
+        </div>
+        <div class="mb-3">
           <label for="location" class="form-label">Location : </label>
           <input type="text" id="location" name="listing[location]" class="form-control" value="<%= listing.location %>"
             required />

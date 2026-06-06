@@ -1,0 +1,114 @@
+<% layout("/Layouts/boilerplate.ejs") %>
+
+<section class="auth-shell auth-shell-login" data-auth-shell>
+  <div class="auth-bg-circle auth-bg-circle-one"></div>
+  <div class="auth-bg-circle auth-bg-circle-two"></div>
+  <div class="auth-grid">
+    <div class="auth-hero">
+      <span class="auth-badge">Welcome Back</span>
+      <h1>Log in and step into your next stay.</h1>
+      <p>
+        Explore handpicked places, manage your bookings, and pick up right where you left off.
+      </p>
+
+      <div class="auth-feature-list">
+        <div class="auth-feature-card">
+          <div class="auth-feature-icon">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div>
+            <h3>Fast access</h3>
+            <p>Jump back into your trips, reviews, and favorite listings in seconds.</p>
+          </div>
+        </div>
+
+        <div class="auth-feature-card">
+          <div class="auth-feature-icon">
+            <i class="fa-solid fa-map-location-dot"></i>
+          </div>
+          <div>
+            <h3>Smart discovery</h3>
+            <p>Search destinations with a cleaner flow and browse stays with confidence.</p>
+          </div>
+        </div>
+
+        <div class="auth-mini-stats">
+          <div class="auth-stat-card">
+            <strong>120+</strong>
+            <span>Dream stays</span>
+          </div>
+          <div class="auth-stat-card">
+            <strong>24/7</strong>
+            <span>Travel vibe</span>
+          </div>
+          <div class="auth-stat-card">
+            <strong>1 tap</strong>
+            <span>Quick access</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="auth-card auth-card-login">
+      <div class="auth-card-glow"></div>
+      <div class="auth-card-content">
+        <div class="auth-card-header">
+          <span class="auth-chip">TheAIR Login</span>
+          <h2>Sign in</h2>
+          <p>Use your account details to continue.</p>
+        </div>
+
+        <form action="/login" method="post" class="needs-validation auth-form" novalidate>
+          <div class="auth-input-group">
+            <label for="username" class="form-label">Username</label>
+            <div class="auth-input-wrap">
+              <i class="fa-regular fa-user"></i>
+              <input
+                name="username"
+                id="username"
+                type="text"
+                class="form-control auth-input"
+                placeholder="Enter your username"
+                required
+              />
+            </div>
+            <div class="invalid-feedback">Please enter your username.</div>
+          </div>
+
+          <div class="auth-input-group">
+            <label for="password" class="form-label">Password</label>
+            <div class="auth-input-wrap auth-password-wrap">
+              <i class="fa-solid fa-lock"></i>
+              <input
+                name="password"
+                id="password"
+                type="password"
+                class="form-control auth-input"
+                placeholder="Enter your password"
+                required
+              />
+              <button class="auth-password-toggle" type="button" data-password-toggle aria-label="Show password">
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+            <div class="invalid-feedback">Please enter your password.</div>
+          </div>
+
+          <button class="btn auth-submit-btn" type="submit">
+            <span>Log In</span>
+            <i class="fa-solid fa-arrow-right-long"></i>
+          </button>
+        </form>
+
+        <div class="auth-divider">
+          <span>New here?</span>
+        </div>
+
+        <a href="/signup" class="auth-secondary-link">
+          Create an account
+          <i class="fa-solid fa-sparkles"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
